@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Codecamp::Application.load_tasks
+Onyx::Application.load_tasks
