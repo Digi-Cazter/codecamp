@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+#gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -24,6 +25,8 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'devise'
 gem 'thin'
+gem 'etherpad-lite'
+gem 'passenger'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
