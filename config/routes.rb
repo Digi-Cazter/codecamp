@@ -1,4 +1,18 @@
 Onyx::Application.routes.draw do
+  get "interviews/index"
+
+  get "interviews/show"
+
+  get "interviews/new"
+
+  get "interviews/create"
+
+  get "interviews/edit"
+
+  get "interviews/delete"
+
+  get "interviews/update"
+
   devise_for :users
 
   get "dashboard/index"
