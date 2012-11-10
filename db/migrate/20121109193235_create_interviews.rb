@@ -1,6 +1,7 @@
 class CreateInterviews < ActiveRecord::Migration
   def change
     create_table :interviews do |t|
+      t.integer :candidate_id
       t.string :position
       t.string :description
       t.datetime :schedule_date
