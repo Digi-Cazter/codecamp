@@ -38,6 +38,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    curb (0.8.3)
     daemon_controller (1.1.0)
     daemons (1.1.9)
     devise (2.1.2)
@@ -101,6 +102,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    sandrbox (0.1.0)
     sass (3.2.2)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -133,12 +135,14 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  curb
   devise
   etherpad-lite
   jquery-rails
   mysql2
   passenger
   rails (= 3.2.8)
+  sandrbox
   sass-rails (~> 3.2.3)
   therubyracer
   thin

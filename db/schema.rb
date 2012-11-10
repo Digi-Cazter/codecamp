@@ -11,19 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109194835) do
+ActiveRecord::Schema.define(:version => 20121110012746) do
 
   create_table "candidates", :force => true do |t|
-    t.integer  "interview_id"
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "phone"
     t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "challenges", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.binary   "challenge"
+    t.binary   "starter_code"
+    t.binary   "test_case"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "interview_challenges", :force => true do |t|
+    t.integer  "interview_id"
+    t.integer  "challenge_id"
+    t.boolean  "has_solution"
+    t.binary   "solution"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "interviews", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "candidate_id"
     t.string   "position"
     t.string   "description"
     t.datetime "schedule_date"
