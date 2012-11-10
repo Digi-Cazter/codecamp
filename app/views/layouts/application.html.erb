@@ -11,9 +11,11 @@
 	<div id="notification_bar">
 		<span id="notice" style="display: none;"><%= notice %></span>
 		<span id="alert" style="display: none;"><%= alert %></span>
-		<span id="user">Welcome back <a href="/sign_in">Mark Meacham</a></span>
+		<span id="user">Welcome back <a href="/sign_in">Mark Meacham</a>.</span>
 	</div>
 	<%= image_tag "logo.png", id: "logo" %>
+	<%= link_to image_tag("dashboard.png"), "/dashboard", style: "position: absolute; top: 35px; right: 0px" %>
+	<%= link_to image_tag("challenges.png"), "/challenges", style: "position: absolute; top: 75px; right: 0px" %>
 
 	<%= yield %>
 

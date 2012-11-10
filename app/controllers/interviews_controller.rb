@@ -17,6 +17,13 @@ class InterviewsController < ApplicationController
     end
   end
 
+  def error
+    @message = "There was a problem scheduling your interview."
+    respond_to do |format|
+      format.js {render 'layouts/alert'}
+    end
+  end
+
   def show
     @interview = Interview.find params[:id]
   end
@@ -67,8 +74,12 @@ class InterviewsController < ApplicationController
 
   def destroy
     interview = Interview.find params[:id]
+    @message = "#{interview.candidate.name} was removed from your schedule."
     interview.destroy
-    render nothing: true
+    
+    respond_to do |format|
+      format.js {render 'layouts/notice'}
+    end
   end
 
   def change_schedule

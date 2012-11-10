@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
 	def index
-		
+		@challenge = Challenge.first
 	end
 
 	def new
@@ -43,6 +43,16 @@ class ChallengesController < ApplicationController
 		@message = "#{@challenge.description} has been saved."
     respond_to do |format|
       format.js {render 'challenges/create'}
+    end
+	end
+
+	def destroy
+		challenge = Challenge.find params[:id]
+		@message = "#{challenge.description} was deleted."
+		challenge.destroy
+
+		respond_to do |format|
+      format.js {render 'challenges/destroy'}
     end
 	end
 end

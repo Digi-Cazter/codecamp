@@ -74,7 +74,7 @@
 			height: 425px;
 			background: #111;
 
-			input{
+			input[type=text]{
 				width: 75px;
 			}
 
@@ -83,7 +83,7 @@
 			}
 
 			.name{
-				width: 250px;
+				width: 150px;
 			}
 
 			.coming{
@@ -95,7 +95,7 @@
 			}
 
 			.action, .last{
-				width: 150px;
+				width: 250px;
 			}
 		}
 	}

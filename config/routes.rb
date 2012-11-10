@@ -7,6 +7,7 @@ Onyx::Application.routes.draw do
   match "interviews/new" => "interviews#new"
   match "interviews/create" => "interviews#create"
   match "interviews/change_schedule" => "interviews#change_schedule"
+  match "interviews/error" => "interviews#error" 
   match "interviews/:id/show" => "interviews#show"
   match "interviews/:id" => "interviews#index"
   match "interviews/:id/add_to_queue" => "interviews#add_to_queue"
@@ -20,9 +21,13 @@ Onyx::Application.routes.draw do
   match "challenges/create" => "challenges#create"
   match "challenges/error" => "challenges#error"
   match "challenges/:id/load" => "challenges#load"
+  match "challenges/:id/destroy" => "challenges#destroy"
 
   # InterviewChallenge
   match "interview_challenges/:id/destroy" => "interview_challenges#destroy"
+
+  #dashboard
+  match "/dashboard" => "dashboard#index"
 
   devise_for :users
 

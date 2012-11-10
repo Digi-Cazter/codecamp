@@ -27,13 +27,14 @@
 	    <td class="description"><%= i.description %></td>
 	    <td class="action" style="text-align: right;">
         <% if @type != "Challenges" %>
-          <% onclick = "" %>
-          <% if queue.include?(i.id) %>
-            <input type="button" value="Added" />
-          <% else %>
-            <input type="button" value="Add to Queue" onclick="$.post('/interviews/<%= @interview.id %>/add_to_queue?challenge=<%= i.id %>'); $(this).val('Added'); $(this).attr('onclick', '');" />
-          <% end %>
-          
+          <%# onclick = "" %>
+          <%# if queue.include?(i.id) %>
+            <!--<input type="button" value="Added" />
+          <%# else %>
+            <input type="button" value="Add to Queue" onclick="$.post('/interviews/<%#= @interview.id %>/add_to_queue?challenge=<%#= i.id %>'); $(this).val('Added'); $(this).attr('onclick', '');" />
+          <%# end %>-->
+        <% else %>
+          <input type="button" value="Remove" onclick="$.post('/challenges/<%= i.id %>/destroy'); $(this).parents('td').parents('tr').remove(); event.stopPropagation();" />
         <% end %>
       </td>
 	  </tr>

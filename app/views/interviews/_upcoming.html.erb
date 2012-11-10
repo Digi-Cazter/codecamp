@@ -1,0 +1,22 @@
+<table>
+  <% c = 0 %>
+  <% end_date = 5.days.from_now.to_s.split(" ")[0] %>
+  <% start = Time.now.to_s.split(" ")[0] %>
+  <% Interview.where("user_id = 1 AND schedule_date >= '#{start} 00:00:00' AND schedule_date < '#{end_date} 23:59:59'").each do |i| %>
+  <% c += 1 %>
+  <tr>
+    <td class="name"><%= i.candidate.first_name %></td>
+    <td class="coming"><%= i.schedule_date.strftime("%m/%d/%Y %l:%M") rescue "" %></td>
+    <td class="experience"></td>
+  </tr>
+  <% end %>
+</table>
+<% if c > 20 %>
+  <script type="text/javascript">
+    addWidth("#upcoming_interviews", 100);
+  </script>
+<% else %>
+  <script type="text/javascript">
+    fixWidth("#upcoming_interviews", 100);
+  </script>
+<% end %>
