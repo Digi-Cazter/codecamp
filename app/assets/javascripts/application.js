@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require_tree .
+
+function snapToCenter(form){
+	left = ($(window).width() - $("#" + form).width())/2;
+
+	$("#" + form).attr("style", "left:" + left + "px;");
+}
+
+function addWidth(list, width){
+	width += 15;
+	$(list + " .last").attr("style", "width: " + width + "px;")
+}
+
+function fixWidth(list, width){
+	$(list + " .last").attr("style", "width: " + width + "px;")
+}

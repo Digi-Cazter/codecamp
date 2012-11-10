@@ -1,0 +1,37 @@
+<div id="challenge">
+  <h2>New Challenge</h2>
+  <div class="content">
+    <form action="challenges/create" method="post" data-remote="true" onsubmit="$('#overlay_challenge').hide();">
+      <table>
+        <tr>
+          <td>Challenge Name:</td>
+          <td><%= text_field_tag :description, "" %></td>
+        </tr>
+        <tr>
+          <td>Challenge Description:</td>
+          <td>
+            <textarea name="challenge"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Starter Code:</td>
+          <td><textarea name="starter_code"></textarea></td>
+        </tr>
+        <tr>
+          <td>Expected Result:</td>
+          <td><textarea name="test_case"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: right;">
+            <%= button_tag "Submit" %>
+            <input type="button" value="Cancel" onclick="$('#overlay_challenge').hide();" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+  snapToCenter("overlay_challenge");
+  $("#overlay_challenge").show();
+</script>

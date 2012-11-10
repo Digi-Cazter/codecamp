@@ -1,0 +1,118 @@
+#editor_wrapper{
+	position: relative;
+	top: 130px;
+	width: 1024px;
+	background: none;
+	margin: auto;
+
+	h1, h2, h3, h4, h5, h6{
+		color: #FFF;
+	}
+
+	#left{
+		width: 300px;
+		margin-right: 20px;
+		float: left;
+		margin-bottom: 20px;
+
+		#challenge_list{
+			
+
+			.description{
+				width: 100px;
+			}
+
+			.type{
+				width: 75px;
+			}
+
+			.difficulty{
+				width: 75px;
+			}
+
+			.action, .last{
+				width: 50px;
+			}
+		}
+
+		#interview{
+			margin-top: 10px;
+
+			.description{
+				width: 250px;
+			}
+
+			.action, .last{
+				width: 50px;
+			}
+		}
+
+		#challenge_list, #interview{
+			height: 225px;
+			background: #111; 
+		}
+	}
+
+	#right{
+		width: 675px;
+		float: left;
+
+		textarea{
+			resize: none;
+		}
+
+		h1, h2, h3{
+			margin-bottom: 0px;
+		}
+
+		#top_banner{
+			height: 30px;
+			background: blue;
+			margin-bottom: 5px;
+		}
+
+		#challenge_section{
+			height: 110px;
+			background: #111;
+
+			textarea{
+				width: 653px;
+				height: 75px;
+			}
+		}
+
+		#editor_section{
+			height: 205px;
+			background: #111;
+
+			textarea{
+				width: 653px;
+				height: 175px;
+			}
+		}
+
+		#tools_section{
+			height: 40px;
+			background: #111;
+
+			div{
+				height: 40px;
+			}
+
+		}
+
+		#message_section{
+			height: 105px;
+			background: #111;
+
+			textarea{
+				width: 653px;
+				height: 75px;
+			}
+		}
+	}
+}
+
+
+
+

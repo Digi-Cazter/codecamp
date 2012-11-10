@@ -1,0 +1,27 @@
+<div id="form_tools">
+	 <%= render "challenges/toolbar" %>
+</div>
+<div id="challenge_section">
+	<h3>Challenge Description</h3>
+	<% if @type == "Challenges" %>
+		<textarea id="challenge_text" onchange="$(this).attr('class', '');" ><%= @challenge.challenge %></textarea>
+	<% else %>
+		<textarea id="challenge_text" disabled="disabled" ><%= @challenge.challenge %></textarea>
+	<% end %>
+</div>
+<div id="editor_section">
+	<h3>Code</h3>
+	<% if @type == "Challenges" %>
+	<textarea id="editor_text" ><%= @challenge.starter_code %></textarea>
+	<% else %>
+	<textarea id="editor_text" ><%= @challenge.starter_code %></textarea>
+	<% end %>
+</div>
+<div id="message_section">
+	<h3>Result</h3>
+	<% if @type == "Challenges" %>
+		<textarea id="result_text" onchange="$(this).attr('class', '');"  ><%= @challenge.test_case %></textarea>
+	<% else %>
+	<textarea id="result_text" disabled="disabled"  ><%= @challenge.test_case %></textarea>
+	<% end %>
+</div>

@@ -1,0 +1,4 @@
+$("#challenge_list").html("");
+$("#challenge_list").html("<%= j render 'challenges/list'.html_safe %>");
+$("#row_<%= @challenge.id %>").click();
+$.post('application/notice?message=<%= @message %>');

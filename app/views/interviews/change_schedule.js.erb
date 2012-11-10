@@ -1,0 +1,8 @@
+$("#right .results").html("<%= j render 'interviews/schedule'.html_safe %>");
+
+
+<% if @overlay != nil %>
+	$.post("application/notice?message=<%=@message %>&overlay=<%= @overlay %>");
+<% else %>
+	$.post("application/notice?message=<%=@message %>");
+<% end %>

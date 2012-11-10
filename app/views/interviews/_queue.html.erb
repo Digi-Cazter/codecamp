@@ -1,0 +1,31 @@
+<h3>Queue
+  <span class="tools"></span>
+</h3>
+<table class="grid_header">
+  <tr>
+    <td class="description">Description</td>
+    <td class="action last">Action</td>
+  </tr>
+</table>
+<div class="results">
+	<table id="challenge_results">
+		<% c = 0 %>
+		<% InterviewChallenge.where("interview_id = #{@interview.id}").each do |i| %>
+		<% c += 1 %>
+		<tr id="row_<%= i.id %>">
+	    <td class="description"><%= i.challenge.description %></td>
+	    <td class="action"><input type="button" value="Remove" onclick="$.post('/interview_challenges/<%= i.id %>/destroy'); $(this).parents('td').parents('tr').remove();" %></td>
+	  </tr>
+		<% end %>
+	</table>
+</div>
+
+<% if c > 20 %>
+  <script type="text/javascript">
+    addWidth("#challenge_list", 50);
+  </script>
+<% else %>
+  <script type="text/javascript">
+    fixWidth("#challenge_list", 50);
+  </script>
+<% end %>

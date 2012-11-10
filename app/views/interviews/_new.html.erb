@@ -1,0 +1,39 @@
+<div id="scheduler">
+	<h2>Schedule Form</h2>
+	<div class="content">
+		<form action="interviews/create" method="post" data-remote="true" onsubmit="$('#overlay_scheduler').hide();">
+			<table>
+				<tr>
+					<td>Candidate Name:</td>
+					<td><%= text_field_tag :name, "" %></td>
+				</tr>
+				<tr>
+					<td>Interviewing for:</td>
+					<td><%= select :candidate, :position, [
+						["Developer", "Developer"], 
+						["Senior Developer", "Senior Developer"], 
+						["Software Engineer", "Software Engineer"]], name: "Position" %>
+					</td>
+				</tr>
+				<tr>
+					<td>Date:</td>
+					<td><%= text_field_tag :date, "", id: "interview_datepicker" %></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: right;">
+						<%= button_tag "Submit" %>
+						<input type="button" value="Cancel" onclick="$('#overlay_scheduler').hide();" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	snapToCenter("overlay_scheduler");
+	$("#overlay_scheduler").show();
+
+	$(function() {
+    $( "#interview_datepicker" ).datetimepicker();
+  });
+</script>

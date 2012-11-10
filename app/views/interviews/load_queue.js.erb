@@ -1,0 +1,2 @@
+$("#interview").html("<%= j render('interviews/queue').html_safe %>");
+$.post("/application/notice?message=<%= @message %>");
