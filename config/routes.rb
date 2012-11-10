@@ -1,4 +1,9 @@
 Onyx::Application.routes.draw do
+
+  match 'editors/group/:id' => 'editors#group'
+  match 'editor/pads/:interview_id/:ep_pad_name' => 'editors#pad'
+  match 'editors/run' => 'editors#run'
+
   # Application
   match "application/notice" => "application#notice"
 

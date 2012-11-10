@@ -28,6 +28,8 @@ gem 'devise'
 gem 'thin'
 gem 'etherpad-lite'
 gem 'passenger'
+gem 'sandrbox'
+gem 'curb'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

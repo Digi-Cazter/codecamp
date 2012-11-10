@@ -1,0 +1,13 @@
+<div id="result">
+  <%= run_command("http://localhost:9001/api/1/getText?apikey=6LrsHQEEUwHMR6a8P7EMdcxnvXrbRVLP&padID=g.N3w0xfzLwpJyvsJd").html_safe %><br />
+</div>
+
+<div id="editor" style="width:650px; height:450px;">
+</div>
+
+<%= button_tag "Push Me", onclick: "$.post('/editors/run?padID=#{@group.id}&apikey=6LrsHQEEUwHMR6a8P7EMdcxnvXrbRVLP');", remote: true %><br />
+<span id="text"></span>
+
+<script type="text/javascript">
+  $('#editor').pad({'host':'http://localhost:9001','padId':'<%= @group.id %>','showControls':'false','showLineNumbers':'true','width':'650','height':'450','border':'1', 'noColors':'true'});
+</script>
