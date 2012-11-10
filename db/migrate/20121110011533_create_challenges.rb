@@ -1,6 +1,7 @@
 class CreateChallenges < ActiveRecord::Migration
   def change
     create_table :challenges do |t|
+    	t.integer :user_id
     	t.string :description
     	t.binary :challenge
     	t.binary :starter_code
