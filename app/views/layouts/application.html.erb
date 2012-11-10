@@ -5,13 +5,25 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Nova+Slim' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+	<div id="notification_bar">
+		<span id="notice" style="display: none;"><%= notice %></span>
+		<span id="alert" style="display: none;"><%= alert %></span>
+		<span id="user">Welcome back <a href="/sign_in">Mark Meacham</a></span>
+	</div>
+	<%= image_tag "logo.png", id: "logo" %>
 
+	<%= yield %>
 
-<%= yield %>
+	<!-- Overlays -->
+	<div class="overlay" id="overlay_scheduler" style="display: none;">
+	</div>
+	<div class="overlay" id="overlay_candidate" style="display: none;">
+	</div>
+	<div class="overlay" id="overlay_challenge" style="display: none;">
+	</div>
 
 </body>
 </html>

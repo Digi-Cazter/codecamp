@@ -1,0 +1,21 @@
+<div id="editor_wrapper">
+	<div id="left">
+		<div id="challenge_list">
+			<%= render "challenges/list" %>
+		</div>
+		<% if @type != "Challenges" %>
+			<div id="interview">
+				<%= render "interviews/queue" %>
+			</div>
+		<% end %>
+	</div>
+	<div id="right">
+		
+	</div>
+	
+	<p style="clear: both;"></p>
+</div>
+
+<script type="text/javascript">
+	$("#challenge_results tr:first").click();
+</script>

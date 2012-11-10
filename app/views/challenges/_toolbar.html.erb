@@ -1,0 +1,9 @@
+Challenge Name: 
+
+<% if @type == "Challenges" %>
+<input type="text"  onchange="$(this).attr('class', '');" id="challenge_description" value="<%= @challenge.description rescue "" %>" />
+<input type="hidden" name="id" id="challenge_id" value="<%= @challenge.id rescue "" %>"  />
+<input type="button" id="save_challenge" value="Save Challenge" onclick="verifyChallengeSubmit();" />
+<% else %>
+<%= @challenge.description %>
+<% end %>

@@ -1,0 +1,7 @@
+<% if @overlay != nil %>
+	$("#<%= @overlay %>").hide
+<% end %>
+
+$("#notice").html("<%= j render('layouts/notice').html_safe %>");
+$('#notice').fadeIn(1000);
+$('#notice').fadeOut(3000);

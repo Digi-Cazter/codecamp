@@ -1,0 +1,213 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ *{
+  margin: 0px;
+ }
+
+ body{
+  font-family: Helvetica, Arial, sans-serif;
+  background: #2a2a2a url("bg.jpg") repeat-x;
+  font-size: 11px;
+ }
+
+ h1, h2, h3, h4, h5, h6{
+  margin-bottom: 10px;
+  font-family: 'Nova Slim', cursive;
+  font-weight: normal;
+ }
+
+ p{
+  margin-bottom: 10px;
+  line-height: 1.25em;
+ }
+
+ textarea{
+  padding: 5px;
+  font-size: 11px;
+  font-family: Helvetica, Arial, sans-serif;
+ }
+
+ a{
+  color: #8B0000;
+  text-decoration: none;
+ }
+
+ a:hover{
+  color: #8B0000;
+  text-decoration: underline;
+ }
+
+ div{
+  background: #FFF;
+  padding: 5px;
+ }
+
+ table{
+  width: 100%;
+  border-collapse: collapse;
+ }
+
+ td{
+  padding: 2px;
+ }
+
+ input[type=button]{
+  cursor: pointer;
+ }
+
+ #alert{
+  color: #FF0000;
+  margin-left: 5px;
+
+  image{
+    position: relative;
+    top: 2px;
+  }
+ }
+
+ #ui-datepicker-div{
+  display: none;
+ }
+
+ .error{
+  background: #EE6363;
+ }
+
+ .trigger{
+  cursor: pointer;
+ }
+
+ .active_row{
+  background: #8B0000;
+  color: #FFF;
+
+  a{
+    color: #FFF;
+  }
+
+  a:hover{
+    color: #FFF;
+  }
+ }
+
+ .grid_header{
+  background: #111;
+  color: #FFF;
+ }
+
+ #notice{
+  color: #005C00;
+  margin-left: 5px;
+
+  image{
+    position: relative;
+    top: 2px;
+  }
+ }
+
+ .results{
+  height: 180px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px; 
+
+  td{
+    border-bottom: 1px solid #CCC;
+  }
+ }
+
+ .tools{
+  float: right;
+
+  img{
+    height: 10px;
+    cursor: pointer;
+  }
+ }
+
+ #notification_bar{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  box-shadow: 0px 2px 2px #555;
+  z-index: 10;
+
+  a:hover{
+    color: #8B0000;
+    text-decoration: underline;
+  }
+
+  #user{
+    float: right;
+    padding-right: 15px;
+  }
+ }
+
+ #logo{
+  position: absolute;
+  top: 25px;
+  left: 5px;
+ }
+
+ #login_container{
+  position: absolute;
+  top: 200px;
+  width: 500px;
+  height: 250px;
+  color: #FFF;
+
+  a:hover{
+    color: #FFF;
+  }
+
+  #login_form{
+    border-right: 2px solid #FFF;
+    background: #111;
+  }
+
+  #sign_up{
+    background: #111 url("rock.png") no-repeat bottom right;
+  }
+
+  #sign_up_form{
+    position: absolute;
+    height: 240px;
+    background: #111 url("rock.png") no-repeat bottom right;
+    width: 490px;
+  }
+
+  #login_form, #sign_up{
+    height: 240px;
+    width: 238px;
+    float: left;
+  }
+ }
+
+ /* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; }
+.ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+
+
+
+

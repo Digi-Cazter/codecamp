@@ -1,0 +1,52 @@
+<h3>Challenges
+  <span class="tools">
+    <% if @type == "Challenges" %>
+    <%= image_tag "plus.png", onclick: "$.post('challenges/new');" %>
+    <% end %>
+  </span>
+</h3>
+<table class="grid_header">
+  <tr>
+    <td class="description">Description</td>
+    <td class="action last"></td>
+  </tr>
+</table>
+<div class="results">
+	<table id="challenge_results">
+    <% if @type != "Challenges" %>
+      <% queue = [] %>
+      <% InterviewChallenge.where("interview_id = #{@interview.id}").each do |item| %>
+       <% queue << item.challenge_id %>
+      <% end %>
+    <% end %>
+
+		<% c = 0 %>
+		<% Challenge.where("user_id = 1").each do |i| %>
+		<% c += 1 %>
+		<tr class="trigger" id="row_<%= i.id %>" onclick="selectRow('#row_<%= i.id %>'); $.post('/challenges/<%= i.id %>/load?type=<%= @type %>');">
+	    <td class="description"><%= i.description %></td>
+	    <td class="action" style="text-align: right;">
+        <% if @type != "Challenges" %>
+          <% onclick = "" %>
+          <% if queue.include?(i.id) %>
+            <input type="button" value="Added" />
+          <% else %>
+            <input type="button" value="Add to Queue" onclick="$.post('/interviews/<%= @interview.id %>/add_to_queue?challenge=<%= i.id %>'); $(this).val('Added'); $(this).attr('onclick', '');" />
+          <% end %>
+          
+        <% end %>
+      </td>
+	  </tr>
+		<% end %>
+	</table>
+</div>
+
+<% if c > 20 %>
+  <script type="text/javascript">
+    addWidth("#challenge_list", 50);
+  </script>
+<% else %>
+  <script type="text/javascript">
+    fixWidth("#challenge_list", 50);
+  </script>
+<% end %>

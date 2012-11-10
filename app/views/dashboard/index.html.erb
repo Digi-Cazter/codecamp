@@ -1,2 +1,126 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<div id="dashboard">
+  <div id="left">
+    <div id="upcoming_interviews">
+      <h3>Upcoming Interviews
+        <span class="tools"></span>
+      </h3>
+      <table class="grid_header">
+        <tr>
+          <td class="name">Name</td>
+          <td class="coming">Interview Date</td>
+          <td class="experience last"></td>
+        </tr>
+      </table>
+      <div class="results">
+        <table>
+          <% c = 0 %>
+          <% start = 5.days.from_now.to_s.split(" ")[0] %>
+          <% Interview.where("user_id = 1 AND schedule_date > '#{start} 00:00:00' AND schedule_date < '#{start} 23:59:59'").each do |i| %>
+          <% c += 1 %>
+          <tr>
+            <td class="name"><%= i.candidate.first_name %></td>
+            <td class="coming"><%= i.schedule_date.strftime("%m/%d/%Y %l:%M") rescue "" %></td>
+            <td class="experience"></td>
+          </tr>
+          <% end %>
+        </table>
+        <% if c > 20 %>
+          <script type="text/javascript">
+            addWidth("#upcoming_interviews", 100);
+          </script>
+        <% else %>
+          <script type="text/javascript">
+            fixWidth("#upcoming_interviews", 100);
+          </script>
+        <% end %>
+      </div>
+    </div>
+    <div id="challenges">
+      <h3>Challenges
+        <span class="tools">
+          <%= link_to image_tag("plus.png"), "challenges" %></span>
+      </h3>
+      <table class="grid_header">
+        <tr>
+          <td class="description">Description</td>
+          <td class="type"></td>
+          <td class="difficulty"></td>
+          <td class="action last"></td>
+        </tr>
+      </table>
+      <div class="results">
+        <table>
+          <% c = 0 %>
+          <% Challenge.where("user_id").each do |i| %>
+          <% c += 1 %>
+          <tr>
+            <td class="description"><%= i.description %></td>
+            <td class="type"></td>
+            <td class="difficulty"></td>
+            <td class="action"></td>
+          </tr>
+          <% end %>
+        </table>
+        <% if c > 20 %>
+          <script type="text/javascript">
+            addWidth("#challenges", 50);
+          </script>
+        <% else %>
+          <script type="text/javascript">
+            fixWidth("#challenges", 50);
+          </script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="right">
+    <div id="schedule">
+      <h3>Schedule Date: <input id="schedule_start" type="text" value="" onchange="$.post('/interviews/change_schedule?start=' + $(this).val());" />
+        <script type="text/javascript">
+          var myDate = new Date();
+          var date =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +
+          myDate.getFullYear();
+          $("#schedule_start").val(date);
+
+          $(function() {
+            $( "#schedule_start" ).datepicker();
+          });
+        </script>
+        <span class="tools"><%= image_tag "plus.png", onclick: "$.post('interviews/new');" %></span>
+      </h3>
+      <table class="grid_header">
+        <tr>
+          <td class="name">Name</td>
+          <td class="coming">Position</td>
+          <td class="description">Interview Date</td>
+          <td class="action last">Action</td>
+        </tr>
+      </table>
+      <div class="results">
+        <table>
+          <% c = 0 %>
+          <% @schedule_list.each do |i| %>
+          <% c += 1 %>
+          <tr>
+            <td class="name"><%= i.candidate.first_name %></td>
+            <td class="coming"><%= i.position %></td>
+            <td class="description"><%= i.schedule_date.strftime("%m/%d/%Y %l:%M") rescue "" %></td>
+            <td class="action"><input type="button" onclick="$.post('interviews/<%= i.id %>/destroy'); $(this).parents('td').parents('tr').remove();" value="Remove" %></td>
+          </tr>
+          <% end %>
+        </table>
+        <% if c > 42 %>
+          <script type="text/javascript">
+            addWidth("#schedule", 150);
+          </script>
+        <% else %>
+          <script type="text/javascript">
+            fixWidth("#schedule", 150);
+          </script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <p style="clear: both;"></p>
+</div>
+

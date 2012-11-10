@@ -1,9 +1,33 @@
 Onyx::Application.routes.draw do
-  resources :interviews
 
   match 'editors/group/:id' => 'editors#group'
   match 'editor/pads/:interview_id/:ep_pad_name' => 'editors#pad'
   match 'editors/run' => 'editors#run'
+
+  # Application
+  match "application/notice" => "application#notice"
+
+  # Interviews
+  resources :interviews
+  match "interviews/new" => "interviews#new"
+  match "interviews/create" => "interviews#create"
+  match "interviews/change_schedule" => "interviews#change_schedule"
+  match "interviews/:id/show" => "interviews#show"
+  match "interviews/:id" => "interviews#index"
+  match "interviews/:id/add_to_queue" => "interviews#add_to_queue"
+  match "interviews/:id/destroy" => "interviews#destroy"
+
+
+
+  # Challenge
+  match "challenges" => "challenges#index"
+  match "challenges/new" => "challenges#new"
+  match "challenges/create" => "challenges#create"
+  match "challenges/error" => "challenges#error"
+  match "challenges/:id/load" => "challenges#load"
+
+  # InterviewChallenge
+  match "interview_challenges/:id/destroy" => "interview_challenges#destroy"
 
   devise_for :users
 

@@ -1,0 +1,21 @@
+<table>
+  <% c = 0 %>
+  <% @schedule_list.where("user_id = 1").each do |i| %>
+  <% c += 1 %>
+  <tr>
+    <td class="name"><%= i.candidate.first_name %></td>
+    <td class="coming"><%= i.position %></td>
+    <td class="description"><%= i.schedule_date.strftime("%m/%d/%Y %l:%M") rescue "" %></td>
+    <td class="action"><input type="button" onclick="$.post('interviews/<%= i.id %>/destroy'); $(this).parents('td').parents('tr').remove();" value="Remove" %></td>
+  </tr>
+  <% end %>
+</table>
+<% if c > 42 %>
+  <script type="text/javascript">
+    addWidth("#schedule", 150);
+  </script>
+<% else %>
+  <script type="text/javascript">
+    fixWidth("#schedule", 150);
+  </script>
+<% end %>
